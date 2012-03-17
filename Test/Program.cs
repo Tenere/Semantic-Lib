@@ -5,36 +5,57 @@ using System.IO;
 
 namespace Test
 {
-  public static class Program
-  {
-    public static void Main(string[] args)
-    {
-      var plugins = PluginManager.FindPlugins();
+	public static class Program
+	{
+		public static void Main(string[] args)
+		{
+			Console.ReadKey();
+			IPlugin plugin = PluginManager.FindPlugin("SemanticLib.LibOpcPlugin.dll");
 
-      foreach (IPlugin plugin in plugins)
-      {
-        ITextPlugin textPlugin = plugin as ITextPlugin;
+			if (plugin != null)
+			{
+				ITextPlugin textPlugin = (ITextPlugin)plugin;
+				ITextDocument textDocument = textPlugin.OpenTextDocument(@"123.docx");
 
-        if (textPlugin != null)
-        {
-          string extension = textPlugin.Format == DocumentFormat.OfficeOpenXML ? "docx" : "odt";
-          string fileName = string.Format("Text document.{0}", extension);
+				if (textDocument != null)
+				{
+					textDocument.Paragraphs.Add();
+					textDocument.Dispose();
+				}
+			}
+			//var plugins = PluginManager.FindPlugins();
 
-          ITextDocument textDocument = textPlugin.CreateTextDocument(fileName);
+			//foreach (IPlugin plugin in plugins)
+			//{
+			//    ITextPlugin textPlugin = plugin as ITextPlugin;
 
-          IParagraph paragraph = textDocument.Paragraphs.Add();
-          IRange range = paragraph.Ranges.Add();
-          IText text = range.TextAreas.Add();
-          text.Text = "Paragraph 1";
+			//    if (textPlugin != null)
+			//    {
+			//        Console.WriteLine("Plugin. Name: {0}. Format: {1}.", textPlugin.Name, textPlugin.Format);
+			//        ITextDocument document = textPlugin.CreateTextDocument("123");
 
-          paragraph = textDocument.Paragraphs.Add();
-          range = paragraph.Ranges.Add();
-          text = range.TextAreas.Add();
-          text.Text = "Paragraph 2";
+			//        if (document != null)
+			//        {
+			//            document.Dispose();
+			//        }
+			//        //string extension = textPlugin.Format == DocumentFormat.OfficeOpenXML ? "docx" : "odt";
+			//        //string fileName = string.Format("Text document.{0}", extension);
 
-          textDocument.Dispose();
-        }
-      }
-    }
-  }
+			//        //ITextDocument textDocument = textPlugin.CreateTextDocument(fileName);
+
+			//        //IParagraph paragraph = textDocument.Paragraphs.Add();
+			//        //IRange range = paragraph.Ranges.Add();
+			//        //IText text = range.TextAreas.Add();
+			//        //text.Text = "Paragraph 1";
+
+			//        //paragraph = textDocument.Paragraphs.Add();
+			//        //range = paragraph.Ranges.Add();
+			//        //text = range.TextAreas.Add();
+			//        //text.Text = "Paragraph 2";
+
+			//        //textDocument.Dispose();
+			//    }
+			//}
+		}
+	}
 }

@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using SemanticLib.Core;
+using SemanticLib.Core.Collections;
+using SemanticLib.OpenXmlSdkPlugin.Collections;
 using OpenXmlSdk = DocumentFormat.OpenXml.Wordprocessing;
 
 namespace SemanticLib.OpenXmlSdkPlugin
@@ -11,9 +10,11 @@ namespace SemanticLib.OpenXmlSdkPlugin
 	{
 		#region Fields
 
-		private readonly OpenXmlSdk.Run _run;
+		private readonly OpenXmlSdkParagraph _paragraph;
 
 		private readonly OpenXmlSdkTextCollection _textCollection;
+
+		private readonly OpenXmlSdk.Run _run;
 		#endregion
 
 		#region Properties
@@ -43,10 +44,18 @@ namespace SemanticLib.OpenXmlSdkPlugin
 
 		#region Constructors
 
-		internal OpenXmlSdkRange()
+		internal OpenXmlSdkRange(OpenXmlSdkParagraph paragraph)
 		{
-			_run = new OpenXmlSdk.Run();
+			if (paragraph == null)
+			{
+				throw new ArgumentNullException("paragraph");
+			}
+
+			_paragraph = paragraph;
 			_textCollection = new OpenXmlSdkTextCollection(this);
+
+			_run = new OpenXmlSdk.Run();
+			_paragraph.InnerObject.Append(_run);
 		}
 		#endregion
 	}

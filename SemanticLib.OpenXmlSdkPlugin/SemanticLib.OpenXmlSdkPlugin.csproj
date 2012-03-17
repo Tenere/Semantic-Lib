@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\Debug\</OutputPath>
+    <OutputPath>..\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -44,11 +44,11 @@
   <ItemGroup>
     <Compile Include="OpenXmlSdkDocumentElement.cs" />
     <Compile Include="OpenXmlSdkParagraph.cs" />
-    <Compile Include="OpenXmlSdkPluginParagraphCollection.cs" />
+    <Compile Include="Collections\OpenXmlSdkParagraphCollection.cs" />
     <Compile Include="OpenXmlSdkRange.cs" />
-    <Compile Include="OpenXmlSdkRangeCollection.cs" />
+    <Compile Include="Collections\OpenXmlSdkRangeCollection.cs" />
     <Compile Include="OpenXmlSdkText.cs" />
-    <Compile Include="OpenXmlSdkTextCollection.cs" />
+    <Compile Include="Collections\OpenXmlSdkTextCollection.cs" />
     <Compile Include="OpenXmlSdkTextDocument.cs" />
     <Compile Include="OpenXmlSdkTextPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -58,11 +58,6 @@
       <Project>{A8EF7F05-C852-4559-9EF3-E4FB56CC4469}</Project>
       <Name>SemanticLib.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Collections.cd" />
-    <None Include="Core.cd" />
-    <None Include="Plugin.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

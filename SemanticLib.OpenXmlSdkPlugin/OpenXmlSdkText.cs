@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using SemanticLib.Core;
 using OpenXmlSdk = DocumentFormat.OpenXml.Wordprocessing;
 
@@ -10,6 +7,8 @@ namespace SemanticLib.OpenXmlSdkPlugin
 	internal sealed class OpenXmlSdkText : OpenXmlSdkElement<OpenXmlSdk.Text>, IText
 	{
 		#region Fields
+
+		private readonly OpenXmlSdkRange _range;
 
 		private readonly OpenXmlSdk.Text _text;
 		#endregion
@@ -48,9 +47,17 @@ namespace SemanticLib.OpenXmlSdkPlugin
 
 		#region Constructors
 
-		internal OpenXmlSdkText()
+		internal OpenXmlSdkText(OpenXmlSdkRange range)
 		{
+			if (range == null)
+			{
+				throw new ArgumentNullException("range");
+			}
+
+			_range = range;
+
 			_text = new OpenXmlSdk.Text();
+			_range.InnerObject.Append(_text);
 		}
 		#endregion
 	}

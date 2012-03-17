@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using DocumentFormat.OpenXml.Packaging;
-using OpenXmlSdk = DocumentFormat.OpenXml.Wordprocessing;
 using SemanticLib.Core;
+using SemanticLib.Core.Collections;
+using SemanticLib.OpenXmlSdkPlugin.Collections;
+using OpenXmlSdk = DocumentFormat.OpenXml.Wordprocessing;
 
 namespace SemanticLib.OpenXmlSdkPlugin
 {
