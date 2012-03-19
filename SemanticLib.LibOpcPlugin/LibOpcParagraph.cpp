@@ -7,15 +7,8 @@ namespace SemanticLib { namespace LibOpcPlugin {
 		: m_TextDocument(textDocument)
 	{
 		opcContainer* container = m_TextDocument->GetContainer();
-		opcPart firstPart = opcPartGetFirst(container);
 
-		opcContainerDump(container, stdout);
-		for (opcPart part = opcPartGetFirst(container); OPC_PART_INVALID != part; part = opcPartGetNext(container, part))
-		{
-			const xmlChar* type = opcPartGetType(container, part);p
-		}
-
-		const char partName[] = "word/document";
+		const char partName[] = "/word/document.xml";
 		opcPart part = opcPartFind(container, _X(partName), NULL, 0);
 		if (OPC_PART_INVALID != part)
 		{

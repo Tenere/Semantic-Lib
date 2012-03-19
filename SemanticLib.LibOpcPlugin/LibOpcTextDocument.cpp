@@ -9,20 +9,16 @@ namespace SemanticLib { namespace LibOpcPlugin {
 	{
 		m_Paragraphs = gcnew LibOpcParagraphCollection(this);
 
-		char* pszFileName = (char*)Marshal::StringToHGlobalAuto(fileName).ToPointer();
+		char* pszFileName = (char*)Marshal::StringToHGlobalAnsi(fileName).ToPointer();
 
-		opc_error_t err = opcInitLibrary();
-		if (OPC_ERROR_NONE != err)
+		if (OPC_ERROR_NONE != opcInitLibrary())
 		{
 			throw gcnew InvalidOperationException();
 		}
 		else
 		{
-			m_Container = opcContainerOpen(_X(pszFileName), OPC_OPEN_READ_ONLY, NULL, NULL);
-			const char partName[] = "word/document.xml";
+			m_Container = opcContainerOpen(_X(pszFileName), OPC_OPEN_READ_WRITE, NULL, NULL);
 
-			//opcPart part = opcPartFind(m_Container, _X(partName), NULL, 0);
-			opcPart part = opcPartGetFirst(m_Container);
 			Marshal::FreeHGlobal(IntPtr(pszFileName));
 
 			if (NULL == m_Container)

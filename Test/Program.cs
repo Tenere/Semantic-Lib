@@ -15,7 +15,8 @@ namespace Test
 			if (plugin != null)
 			{
 				ITextPlugin textPlugin = (ITextPlugin)plugin;
-				ITextDocument textDocument = textPlugin.OpenTextDocument(@"123.docx");
+				string fileName = @"c:\Projects\Git\SemanticLib\Debug\helloworld.docx";
+				ITextDocument textDocument = textPlugin.OpenTextDocument(fileName);
 
 				if (textDocument != null)
 				{
