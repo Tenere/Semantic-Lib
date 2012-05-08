@@ -7,30 +7,27 @@ using OpenXmlSdk = DocumentFormat.OpenXml.Wordprocessing;
 
 namespace SemanticLib.OpenXmlSdkPlugin
 {
-	internal sealed class OpenXmlSdkTextDocument : OpenXmlSdkElement<WordprocessingDocument>, ITextDocument
+	internal sealed class OpenXmlSdkTextDocument : OpenXmlSdkPackageDocument, IOpenXmlSdkElement<WordprocessingDocument>, ITextDocument
 	{
 		#region Fields
+
+		private readonly string _path;
 
 		private readonly WordprocessingDocument _package;
 
 		private readonly OpenXmlSdkParagraphCollection _paragraphs;
+
+		private readonly OpenXmlSdkDocumentProperties _properties;
 		#endregion
 
 		#region Properties
 
-		public string SemanticMarkup
+		internal override OpenXmlPart MainDocumentPart
 		{
-			get
-			{
-				throw new NotImplementedException();
-			}
-			set
-			{
-				throw new NotImplementedException();
-			}
+			get { return _package.MainDocumentPart; }
 		}
 
-		internal override WordprocessingDocument InnerObject
+		public new WordprocessingDocument InnerObject
 		{
 			get { return _package; }
 		}
@@ -39,14 +36,22 @@ namespace SemanticLib.OpenXmlSdkPlugin
 		{
 			get { return _paragraphs; }
 		}
+
+		public override IDocumentProperties Properties
+		{
+			get { return _properties; }
+		}
 		#endregion
 
 		#region Constructors
 
-		private OpenXmlSdkTextDocument(WordprocessingDocument wordprocessingDocument)
+		private OpenXmlSdkTextDocument(WordprocessingDocument wordprocessingDocument, string path)
+			: base(wordprocessingDocument, path)
 		{
+			_path = path;
 			_package = wordprocessingDocument;
 			_paragraphs = new OpenXmlSdkParagraphCollection(this);
+			//_properties = new OpenXmlSdkDocumentProperties(this);
 		}
 		#endregion
 
@@ -58,21 +63,21 @@ namespace SemanticLib.OpenXmlSdkPlugin
 			package.AddMainDocumentPart();
 			package.MainDocumentPart.Document = new OpenXmlSdk.Document(new OpenXmlSdk.Body());
 
-			//OpenXmlSdk.Para
-
-			return new OpenXmlSdkTextDocument(package);
+			return new OpenXmlSdkTextDocument(package, System.IO.Path.Combine(Environment.CurrentDirectory, fileName));
 		}
 
 		internal static OpenXmlSdkTextDocument Open(string fileName)
 		{
 			WordprocessingDocument package = WordprocessingDocument.Open(fileName, true);
 
-			return new OpenXmlSdkTextDocument(package);
+			return new OpenXmlSdkTextDocument(package, fileName);
 		}
 
-		public void Dispose()
+		public override void Dispose()
 		{
-			_package.Dispose();
+			//_properties.Save();
+
+			base.Dispose();
 		}
 		#endregion
 	}

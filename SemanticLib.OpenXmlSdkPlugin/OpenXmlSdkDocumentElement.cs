@@ -1,8 +1,8 @@
 ﻿
 namespace SemanticLib.OpenXmlSdkPlugin
 {
-	internal abstract class OpenXmlSdkElement<T>
+	internal interface IOpenXmlSdkElement<T>
 	{
-		internal abstract T InnerObject { get; }
+		T InnerObject { get; }
 	}
 }

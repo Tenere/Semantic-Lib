@@ -6,7 +6,7 @@ using OpenXmlSdk = DocumentFormat.OpenXml.Wordprocessing;
 
 namespace SemanticLib.OpenXmlSdkPlugin
 {
-	internal sealed class OpenXmlSdkRange : OpenXmlSdkElement<OpenXmlSdk.Run>, IRange
+	internal sealed class OpenXmlSdkRange : IOpenXmlSdkElement<OpenXmlSdk.Run>, IRange
 	{
 		#region Fields
 
@@ -19,7 +19,7 @@ namespace SemanticLib.OpenXmlSdkPlugin
 
 		#region Properties
 
-		internal override OpenXmlSdk.Run InnerObject
+		public OpenXmlSdk.Run InnerObject
 		{
 			get { return _run; }
 		}
@@ -27,18 +27,6 @@ namespace SemanticLib.OpenXmlSdkPlugin
 		public TextCollection TextAreas
 		{
 			get { return _textCollection; }
-		}
-
-		public string SemanticMarkup
-		{
-			get
-			{
-				throw new NotImplementedException();
-			}
-			set
-			{
-				throw new NotImplementedException();
-			}
 		}
 		#endregion
 

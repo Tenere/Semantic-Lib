@@ -1,10 +1,11 @@
 ﻿using System;
 using SemanticLib.Core;
 using OpenXmlSdk = DocumentFormat.OpenXml.Wordprocessing;
+using VDS.RDF;
 
 namespace SemanticLib.OpenXmlSdkPlugin
 {
-	internal sealed class OpenXmlSdkText : OpenXmlSdkElement<OpenXmlSdk.Text>, IText
+	internal sealed class OpenXmlSdkText : IOpenXmlSdkElement<OpenXmlSdk.Text>, IText
 	{
 		#region Fields
 
@@ -15,7 +16,7 @@ namespace SemanticLib.OpenXmlSdkPlugin
 
 		#region Properties
 
-		internal override OpenXmlSdk.Text InnerObject
+		public OpenXmlSdk.Text InnerObject
 		{
 			get { return _text; }
 		}
@@ -32,7 +33,7 @@ namespace SemanticLib.OpenXmlSdkPlugin
 			}
 		}
 
-		public string SemanticMarkup
+		public INode Node
 		{
 			get
 			{
@@ -40,7 +41,7 @@ namespace SemanticLib.OpenXmlSdkPlugin
 			}
 			set
 			{
-				throw new NotImplementedException();
+				_text.Text = value.ToString();
 			}
 		}
 		#endregion
@@ -58,6 +59,17 @@ namespace SemanticLib.OpenXmlSdkPlugin
 
 			_text = new OpenXmlSdk.Text();
 			_range.InnerObject.Append(_text);
+		}
+
+		internal OpenXmlSdkText(OpenXmlSdkRange range, string text)
+			: this(range)
+		{
+			if (string.IsNullOrEmpty(text))
+			{
+				throw new ArgumentException("text");
+			}
+
+			_text.Text = text;
 		}
 		#endregion
 	}

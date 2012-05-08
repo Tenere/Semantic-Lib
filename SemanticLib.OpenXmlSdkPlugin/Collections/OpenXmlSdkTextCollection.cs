@@ -26,6 +26,11 @@ namespace SemanticLib.OpenXmlSdkPlugin.Collections
 
 			return text;
 		}
+
+		public override IText Add(string text)
+		{
+			throw new System.NotImplementedException();
+		}
 		#endregion
 	}
 }

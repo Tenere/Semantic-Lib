@@ -1,4 +1,5 @@
-﻿using SemanticLib.Core;
+﻿using System;
+using SemanticLib.Core;
 using SemanticLib.Core.Collections;
 
 namespace SemanticLib.OpenXmlSdkPlugin.Collections
@@ -14,6 +15,11 @@ namespace SemanticLib.OpenXmlSdkPlugin.Collections
 
 		internal OpenXmlSdkParagraphCollection(OpenXmlSdkTextDocument textDocument)
 		{
+			if (textDocument == null)
+			{
+				throw new ArgumentNullException("textDocument");
+			}
+
 			_textDocument = textDocument;
 		}
 		#endregion
@@ -23,6 +29,11 @@ namespace SemanticLib.OpenXmlSdkPlugin.Collections
 		public override IParagraph Add()
 		{
 			OpenXmlSdkParagraph paragraph = new OpenXmlSdkParagraph(_textDocument);
+
+			if (paragraph != null)
+			{
+				Add(paragraph);
+			}
 
 			return paragraph;
 		}

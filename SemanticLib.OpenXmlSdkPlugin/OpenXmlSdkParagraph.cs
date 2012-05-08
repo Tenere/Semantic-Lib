@@ -6,7 +6,7 @@ using OpenXmlSdk = DocumentFormat.OpenXml.Wordprocessing;
 
 namespace SemanticLib.OpenXmlSdkPlugin
 {
-	internal sealed class OpenXmlSdkParagraph : OpenXmlSdkElement<OpenXmlSdk.Paragraph>, IParagraph
+	internal sealed class OpenXmlSdkParagraph : IOpenXmlSdkElement<OpenXmlSdk.Paragraph>, IParagraph
 	{
 		#region Fields
 
@@ -19,21 +19,9 @@ namespace SemanticLib.OpenXmlSdkPlugin
 
 		#region Properties
 
-		internal override OpenXmlSdk.Paragraph InnerObject
+		public OpenXmlSdk.Paragraph InnerObject
 		{
 			get { return _paragraph; }
-		}
-
-		public string SemanticMarkup
-		{
-			get
-			{
-				throw new NotImplementedException();
-			}
-			set
-			{
-				throw new NotImplementedException();
-			}
 		}
 
 		public RangeCollection Ranges
