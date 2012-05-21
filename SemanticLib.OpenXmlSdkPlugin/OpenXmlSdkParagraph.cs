@@ -1,27 +1,22 @@
-﻿using System;
-using SemanticLib.Core;
+﻿using SemanticLib.Core;
 using SemanticLib.Core.Collections;
 using SemanticLib.OpenXmlSdkPlugin.Collections;
 using OpenXmlSdk = DocumentFormat.OpenXml.Wordprocessing;
 
 namespace SemanticLib.OpenXmlSdkPlugin
 {
-	internal sealed class OpenXmlSdkParagraph : IOpenXmlSdkElement<OpenXmlSdk.Paragraph>, IParagraph
+	internal sealed class OpenXmlSdkParagraph : OpenXmlSdkTextDocumentElement, IParagraph
 	{
 		#region Fields
 
-		private readonly OpenXmlSdkTextDocument _textDocument;
-
 		private readonly OpenXmlSdkRangeCollection _rangeCollection;
-
-		private readonly OpenXmlSdk.Paragraph _paragraph;
 		#endregion
 
 		#region Properties
 
-		public OpenXmlSdk.Paragraph InnerObject
+		public new OpenXmlSdk.Paragraph InnerObject
 		{
-			get { return _paragraph; }
+			get { return (OpenXmlSdk.Paragraph)base.InnerObject; }
 		}
 
 		public RangeCollection Ranges
@@ -32,18 +27,10 @@ namespace SemanticLib.OpenXmlSdkPlugin
 
 		#region Constructors
 
-		internal OpenXmlSdkParagraph(OpenXmlSdkTextDocument textDocument)
+		internal OpenXmlSdkParagraph(OpenXmlSdkTextDocument textDocument, OpenXmlSdk.Paragraph paragraph)
+			: base(textDocument, paragraph)
 		{
-			if (textDocument == null)
-			{
-				throw new ArgumentNullException("textDocument");
-			}
-
-			_textDocument = textDocument;
 			_rangeCollection = new OpenXmlSdkRangeCollection(this);
-			_paragraph = new OpenXmlSdk.Paragraph();
-
-			_textDocument.InnerObject.MainDocumentPart.Document.Body.Append(_paragraph);
 		}
 		#endregion
 	}

@@ -1,0 +1,38 @@
+﻿<Window x:Class="WpfRibbonApplication1.SemanticLibTree"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SemanticLibTree" Height="300" Width="300"
+		xmlns:sl="clr-namespace:SemanticLib.Core;assembly=SemanticLib">
+	<DockPanel>
+	<DockPanel.Resources>
+		<DataTemplate x:Key="TextAreaTemplate"
+					DataType="{x:Type sl:IText}">
+			<TextBlock Text="Text"/>
+		</DataTemplate>
+
+		<HierarchicalDataTemplate x:Key="RangeTemplate"
+								DataType    = "{x:Type sl:IRange}"
+								ItemTemplate="{StaticResource TextAreaTemplate}"
+								ItemsSource = "{Binding Path=TextAreas}">
+				<TextBlock Text="Range"/>
+			</HierarchicalDataTemplate>
+
+		<HierarchicalDataTemplate x:Key="ParagraphTemplate"
+								  DataType    = "{x:Type sl:IParagraph}"
+								  ItemTemplate="{StaticResource RangeTemplate}"
+								  ItemsSource = "{Binding Path=Ranges}">
+			<TextBlock Text="Paragraph"/>
+		</HierarchicalDataTemplate>
+	</DockPanel.Resources>
+
+	<!--Menu Name="menu1" DockPanel.Dock="Top" Margin="10,10,10,10">
+		<MenuItem Header="My Soccer Leagues"
+                  ItemsSource="{Binding Source={StaticResource MyList}}" />
+	</Menu>-->
+
+	<TreeView>
+			<TreeViewItem Name="trvDocumentStructure" ItemTemplate="{StaticResource ParagraphTemplate}" Header="Document Structure" />
+	</TreeView>
+
+	</DockPanel>
+</Window>

@@ -11,9 +11,7 @@ namespace SemanticLib.OpenXmlSdkPlugin
 	{
 		#region Fields
 
-		private readonly string _path;
-
-		private readonly WordprocessingDocument _package;
+		private readonly WordprocessingDocument _document;
 
 		private readonly OpenXmlSdkParagraphCollection _paragraphs;
 
@@ -24,12 +22,12 @@ namespace SemanticLib.OpenXmlSdkPlugin
 
 		internal override OpenXmlPart MainDocumentPart
 		{
-			get { return _package.MainDocumentPart; }
+			get { return _document.MainDocumentPart; }
 		}
 
 		public new WordprocessingDocument InnerObject
 		{
-			get { return _package; }
+			get { return _document; }
 		}
 
 		public ParagraphCollection Paragraphs
@@ -48,8 +46,7 @@ namespace SemanticLib.OpenXmlSdkPlugin
 		private OpenXmlSdkTextDocument(WordprocessingDocument wordprocessingDocument, string path)
 			: base(wordprocessingDocument, path)
 		{
-			_path = path;
-			_package = wordprocessingDocument;
+			_document = wordprocessingDocument;
 			_paragraphs = new OpenXmlSdkParagraphCollection(this);
 			//_properties = new OpenXmlSdkDocumentProperties(this);
 		}
@@ -63,6 +60,7 @@ namespace SemanticLib.OpenXmlSdkPlugin
 			package.AddMainDocumentPart();
 			package.MainDocumentPart.Document = new OpenXmlSdk.Document(new OpenXmlSdk.Body());
 
+			//TODO Check path (fileName may contains absolute path).
 			return new OpenXmlSdkTextDocument(package, System.IO.Path.Combine(Environment.CurrentDirectory, fileName));
 		}
 

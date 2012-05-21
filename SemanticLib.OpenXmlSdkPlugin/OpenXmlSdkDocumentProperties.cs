@@ -285,5 +285,11 @@ namespace SemanticLib.OpenXmlSdkPlugin
 				throw new NotImplementedException();
 			}
 		}
+
+
+		public IDocumentStatistics Statistics
+		{
+			get { throw new NotImplementedException(); }
+		}
 	}
 }

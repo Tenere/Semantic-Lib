@@ -1,23 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using SemanticLib.Core;
 using org.odftoolkit.odfdom.doc;
 using org.odftoolkit.odfdom.incubator.meta;
+using SemanticLib.Core;
 
 namespace SemanticLib.OdfDomPlugin
 {
-	internal class OdfDomDocumentProperties : IDocumentProperties
+	internal class OdfDomDocumentProperties : IDocumentProperties, IOdfDomElement<OdfOfficeMeta>
 	{
 		#region Fields
 
-		private readonly OdfDocument _odfDocument;
+		private readonly OdfDomPackageDocument _packageDocument;
 
 		private readonly OdfOfficeMeta _documentMetadata;
 		#endregion
 
 		#region Properties
+
+		public string Application
+		{
+			get
+			{
+				throw new NotImplementedException();
+			}
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
 
 		public DateTime Created
 		{
@@ -57,7 +66,12 @@ namespace SemanticLib.OdfDomPlugin
 
 		public IPackageDocument Document
 		{
-			get { throw new NotImplementedException(); }
+			get { return _packageDocument; }
+		}
+
+		public OdfOfficeMeta InnerObject
+		{
+			get { return _documentMetadata; }
 		}
 
 		public string Keywords
@@ -144,6 +158,11 @@ namespace SemanticLib.OdfDomPlugin
 			}
 		}
 
+		public IDocumentStatistics Statistics
+		{
+			get { throw new NotImplementedException(); }
+		}
+
 		public string Title
 		{
 			get
@@ -155,19 +174,45 @@ namespace SemanticLib.OdfDomPlugin
 				_documentMetadata.setTitle(value);
 			}
 		}
+
+		public string Template
+		{
+			get
+			{
+				throw new NotImplementedException();
+			}
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+		public float TotalEditingTime
+		{
+			get
+			{
+				throw new NotImplementedException();
+			}
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
 		#endregion
 
 		#region Constructors
 
-		internal OdfDomDocumentProperties(OdfDocument odfDocument)
+		internal OdfDomDocumentProperties(OdfDomPackageDocument packageDocument)
 		{
-			if (odfDocument == null)
+			if (packageDocument == null)
 			{
-				throw new ArgumentNullException("odfDocument");
+				throw new ArgumentNullException("packageDocument");
 			}
 
-			_odfDocument = odfDocument;
-			_documentMetadata = _odfDocument.getOfficeMetadata();
+			OdfDocument odfDocument = (OdfDocument)packageDocument.InnerObject;
+
+			_packageDocument = packageDocument;
+			_documentMetadata = odfDocument.getOfficeMetadata();
 		}
 		#endregion
 	}

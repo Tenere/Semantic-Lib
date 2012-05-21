@@ -178,6 +178,8 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DocumentPropertiesExample.cs" />
+    <Compile Include="Example.cs" />
     <Compile Include="MetadataExample.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

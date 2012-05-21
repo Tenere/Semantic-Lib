@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SemanticLib.OdfDomPlugin.Collections.OdfDomParagraphCollection" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Collections\OdfDomParagraphCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SemanticLib.OdfDomPlugin.OdfDomDocumentProperties" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQACAAgAEACAoAAAAAAAGQAAAQCEAAAAAAAgAA=</HashCode>
+      <FileName>OdfDomDocumentProperties.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SemanticLib.OdfDomPlugin.OdfDomTextDocument" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAIAAAAAAAAAAAAAAoCEAAAAAAAAACAAA=</HashCode>
+      <FileName>OdfDomTextDocument.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SemanticLib.OdfDomPlugin.OdfDomTextPlugin" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Plugins\OdfDomTextPlugin.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SemanticLib.OdfDomPlugin.Plugins.OdfDomPlugin" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAEAAAAAAQAAggAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Plugins\OdfDomPlugin.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

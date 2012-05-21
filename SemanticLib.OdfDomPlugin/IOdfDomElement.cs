@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Examples
+namespace SemanticLib.OdfDomPlugin
 {
-	public class Example
+	internal interface IOdfDomElement<T>
 	{
-
+		T InnerObject { get; }
 	}
 }

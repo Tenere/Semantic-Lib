@@ -1,10 +1,13 @@
 ﻿using System;
 using SemanticLib.Core;
+using SemanticLib.Plugins;
 
 namespace SemanticLib.OdfDomPlugin
 {
 	internal class OdfDomTextPlugin : ITextPlugin
 	{
+		#region Methods
+
 		public ITextDocument CreateTextDocument(string fileName)
 		{
 			throw new NotImplementedException();
@@ -14,15 +17,6 @@ namespace SemanticLib.OdfDomPlugin
 		{
 			throw new NotImplementedException();
 		}
-
-		public string Name
-		{
-			get { throw new NotImplementedException(); }
-		}
-
-		public DocumentFormat Format
-		{
-			get { throw new NotImplementedException(); }
-		}
+		#endregion
 	}
 }

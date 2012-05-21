@@ -6,22 +6,20 @@ using OpenXmlSdk = DocumentFormat.OpenXml.Wordprocessing;
 
 namespace SemanticLib.OpenXmlSdkPlugin
 {
-	internal sealed class OpenXmlSdkRange : IOpenXmlSdkElement<OpenXmlSdk.Run>, IRange
+	internal sealed class OpenXmlSdkRange : OpenXmlSdkTextDocumentElement, IRange
 	{
 		#region Fields
 
 		private readonly OpenXmlSdkParagraph _paragraph;
 
 		private readonly OpenXmlSdkTextCollection _textCollection;
-
-		private readonly OpenXmlSdk.Run _run;
 		#endregion
 
 		#region Properties
 
-		public OpenXmlSdk.Run InnerObject
+		public new OpenXmlSdk.Run InnerObject
 		{
-			get { return _run; }
+			get { return (OpenXmlSdk.Run)base.InnerObject; }
 		}
 
 		public TextCollection TextAreas
@@ -32,7 +30,8 @@ namespace SemanticLib.OpenXmlSdkPlugin
 
 		#region Constructors
 
-		internal OpenXmlSdkRange(OpenXmlSdkParagraph paragraph)
+		internal OpenXmlSdkRange(OpenXmlSdkParagraph paragraph, OpenXmlSdk.Run run)
+			: base(paragraph.TextDocument, run)
 		{
 			if (paragraph == null)
 			{
@@ -41,9 +40,6 @@ namespace SemanticLib.OpenXmlSdkPlugin
 
 			_paragraph = paragraph;
 			_textCollection = new OpenXmlSdkTextCollection(this);
-
-			_run = new OpenXmlSdk.Run();
-			_paragraph.InnerObject.Append(_run);
 		}
 		#endregion
 	}

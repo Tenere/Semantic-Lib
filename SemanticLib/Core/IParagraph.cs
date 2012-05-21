@@ -5,7 +5,7 @@ namespace SemanticLib.Core
 	/// <summary>
 	/// Параграф текстового документа.
 	/// </summary>
-	public interface IParagraph
+	public interface IParagraph : IDocumentElement
 	{
 		/// <summary>
 		/// Возвращает коллекцию областей данного параграфа.

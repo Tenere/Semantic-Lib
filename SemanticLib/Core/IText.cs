@@ -5,7 +5,7 @@ namespace SemanticLib.Core
 	/// <summary>
 	/// Текстовый фрагмент текстового документа.
 	/// </summary>
-	public interface IText
+	public interface IText : IDocumentElement
 	{
 		/// <summary>
 		/// Возвращает или задает содержимое данного фрагмента.

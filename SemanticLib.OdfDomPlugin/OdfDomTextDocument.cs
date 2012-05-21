@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using SemanticLib.Core;
 using org.odftoolkit.odfdom.doc;
+using SemanticLib.Core.Collections;
 
 namespace SemanticLib.OdfDomPlugin
 {
-	internal class OdfDomTextDocument : ITextDocument
+	internal class OdfDomTextDocument : OdfDomPackageDocument, ITextDocument, IOdfDomElement<OdfTextDocument>
 	{
 		#region Fields
 
@@ -16,58 +17,37 @@ namespace SemanticLib.OdfDomPlugin
 
 		#region Properties
 
-		public Core.Collections.ParagraphCollection Paragraphs
+		public ParagraphCollection Paragraphs
 		{
 			get { throw new NotImplementedException(); }
 		}
 
-		public IDocumentProperties Properties
+		public new OdfTextDocument InnerObject
 		{
-			get { throw new NotImplementedException(); }
-		}
-
-		public string SemanticMarkup
-		{
-			get
-			{
-				throw new NotImplementedException();
-			}
-			set
-			{
-				throw new NotImplementedException();
-			}
+			get { return _textDocument; }
 		}
 		#endregion
 
 		#region Constructors
 
 		internal OdfDomTextDocument(OdfTextDocument odfTextDocument)
+			: base(odfTextDocument)
 		{
-			if (odfTextDocument == null)
-			{
-				throw new ArgumentNullException("odfTextDocument");
-			}
-
 			_textDocument = odfTextDocument;
 		}
 		#endregion
 
 		#region Methods
 
-		internal OdfDomTextDocument Create()
+		internal static OdfDomTextDocument Create()
 		{
 			return new OdfDomTextDocument(OdfTextDocument.newTextDocument());
 		}
 
-		internal OdfDomTextDocument Open(string fileName)
+		internal static OdfDomTextDocument Open(string fileName)
 		{
 			return new OdfDomTextDocument((OdfTextDocument)OdfTextDocument.loadDocument(fileName));
 		}
 		#endregion
-
-		public void Dispose()
-		{
-			throw new NotImplementedException();
-		}
 	}
 }

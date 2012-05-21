@@ -1,168 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="SemanticLib.Core.Collections.CustomCollection&lt;T&gt;" Collapsed="true">
-    <Position X="4" Y="4" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAAAAAAAAQAAAAAAAAEQAAAAAAAAQA=</HashCode>
-      <FileName>Core\Collections\CustomCollection.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="SemanticLib.Core.Collections.MetadataFileCollection" Collapsed="true">
-    <Position X="0.75" Y="5.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Core\Collections\MetadataDocumentCollection.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SemanticLib.Core.Collections.ParagraphCollection" Collapsed="true">
-    <Position X="3" Y="5.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Core\Collections\ParagraphCollection.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SemanticLib.Core.Collections.RangeCollection" Collapsed="true">
-    <Position X="5.25" Y="5.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Core\Collections\RangeCollection.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SemanticLib.Core.Collections.TextCollection" Collapsed="true">
-    <Position X="7.5" Y="5.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Core\Collections\TextCollection.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SemanticLib.Core.MetadataFile" Collapsed="true">
-    <Position X="8.5" Y="10" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAIAAAAEAAACAAAAAAAAQAAAAAAAgCCAAAAAAAAAA=</HashCode>
-      <FileName>Core\MetadataFile.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="SemanticLib.Core.MetadataManifest" Collapsed="true">
-    <Position X="8.5" Y="11.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAIAAAAIAAEACAAAAAgAAgAAAAAAAAE=</HashCode>
-      <FileName>Core\MetadataManifest.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="SemanticLib.ManifestGraph" Collapsed="true">
-    <Position X="11" Y="4" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAIAAEAAAAAAAAAAgAAAAAAAAE=</HashCode>
-      <FileName>ManifestGraph.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SemanticLib.PluginManager" Collapsed="true">
-    <Position X="12.75" Y="4" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAgAAAA=</HashCode>
-      <FileName>Plugins\PluginManager.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Interface Name="SemanticLib.Core.IDocumentProperties" Collapsed="true">
-    <Position X="11" Y="5.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAQACFAgEEAmAoAAAAAAAEAgAAQCEQAAAAAggAA=</HashCode>
-      <FileName>Core\IDocumentProperties.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="SemanticLib.Core.IMarkupable" Collapsed="true">
-    <Position X="3" Y="7" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Core\IMarkupable.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="SemanticLib.Core.IMetadataFile" Collapsed="true">
-    <Position X="5.5" Y="11.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
-      <FileName>Core\IMetadataFile.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="SemanticLib.Core.IMetadataManifest" Collapsed="true">
-    <Position X="5.5" Y="12.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Core\IMetadataManifest.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="SemanticLib.Core.IPackageDocument" Collapsed="true">
-    <Position X="1.75" Y="10" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
-      <FileName>Core\IPackageDocument.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="SemanticLib.Core.IPackageFile" Collapsed="true">
-    <Position X="5.5" Y="10" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAACCAAAAAAAAAA=</HashCode>
-      <FileName>Core\IPackageFile.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="SemanticLib.Core.IParagraph" Collapsed="true">
-    <Position X="0.75" Y="8.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Core\IParagraph.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="SemanticLib.Core.IRange" Collapsed="true">
-    <Position X="3" Y="8.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
-      <FileName>Core\IRange.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
   <Interface Name="SemanticLib.Core.ISpreadsheetDocument" Collapsed="true">
-    <Position X="2.75" Y="11.5" Width="1.5" />
+    <Position X="3" Y="6.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Core\ISpreadsheetDocument.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="SemanticLib.Core.IText" Collapsed="true">
-    <Position X="5.25" Y="8.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAEAAAA=</HashCode>
-      <FileName>Core\IText.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
   <Interface Name="SemanticLib.Core.ITextDocument" Collapsed="true">
-    <Position X="0.5" Y="11.5" Width="1.5" />
+    <Position X="0.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Core\ITextDocument.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="SemanticLib.Core.IPlugin" Collapsed="true">
-    <Position X="8.5" Y="7" Width="1.5" />
+  <Interface Name="SemanticLib.Core.IPackageDocument" Collapsed="true">
+    <Position X="2" Y="5.25" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAgAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Plugins\IPlugin.cs</FileName>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAACAAAAAACAAA=</HashCode>
+      <FileName>Core\IPackageDocument.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="SemanticLib.Core.ITextPlugin" Collapsed="true">
-    <Position X="8.5" Y="8.25" Width="1.5" />
+  <Interface Name="SemanticLib.Core.IPackageFile" Collapsed="true">
+    <Position X="5.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Plugins\ITextPlugin.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAACCAAAAAAAAAA=</HashCode>
+      <FileName>Core\IPackageFile.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Enum Name="SemanticLib.Core.DocumentFormat" Collapsed="true">
-    <Position X="11" Y="6.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Plugins\IPlugin.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
   <Font Name="Tahoma" Size="8.25" />
 </ClassDiagram>

@@ -1,6 +1,7 @@
 ﻿using System;
 using SemanticLib.Core;
 using SemanticLib.Core.Collections;
+using OpenXmlSdk = DocumentFormat.OpenXml.Wordprocessing;
 
 namespace SemanticLib.OpenXmlSdkPlugin.Collections
 {
@@ -28,7 +29,10 @@ namespace SemanticLib.OpenXmlSdkPlugin.Collections
 
 		public override IParagraph Add()
 		{
-			OpenXmlSdkParagraph paragraph = new OpenXmlSdkParagraph(_textDocument);
+			OpenXmlSdk.Paragraph openXmlParagraph = new OpenXmlSdk.Paragraph();
+			_textDocument.InnerObject.MainDocumentPart.Document.Body.Append(openXmlParagraph);
+
+			OpenXmlSdkParagraph paragraph = new OpenXmlSdkParagraph(_textDocument, openXmlParagraph);
 
 			if (paragraph != null)
 			{

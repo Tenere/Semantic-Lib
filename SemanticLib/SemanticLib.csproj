@@ -184,9 +184,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Collections\KeywordCollection.cs" />
     <Compile Include="Core\Enums.cs" />
     <Compile Include="Core\Collections\CustomCollection.cs" />
     <Compile Include="Core\Collections\MetadataDocumentCollection.cs" />
+    <Compile Include="Core\IDocumentElement.cs" />
+    <Compile Include="Core\IDocumentStatistics.cs" />
     <Compile Include="Core\IMetadataManifest.cs" />
     <Compile Include="Core\IPackageDocument.cs" />
     <Compile Include="Core\IDocumentProperties.cs" />

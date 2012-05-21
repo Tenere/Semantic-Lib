@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SemanticLib.Core.Collections;
+using SemanticLib.Core;
 
 namespace SemanticLib.OdfDomPlugin.Collections
 {
@@ -28,6 +29,17 @@ namespace SemanticLib.OdfDomPlugin.Collections
 
 		#region Methods
 
+		public override IParagraph Add()
+		{
+			OdfDomParagraph paragraph = new OdfDomParagraph(_textDocument);
+
+			if (paragraph != null)
+			{
+				Add(paragraph);
+			}
+
+			return paragraph;
+		}
 		#endregion
 	}
 }

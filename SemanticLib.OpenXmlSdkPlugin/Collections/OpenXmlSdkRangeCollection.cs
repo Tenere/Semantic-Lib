@@ -1,5 +1,6 @@
 ﻿using SemanticLib.Core;
 using SemanticLib.Core.Collections;
+using OpenXmlSdk = DocumentFormat.OpenXml.Wordprocessing;
 
 namespace SemanticLib.OpenXmlSdkPlugin.Collections
 {
@@ -22,7 +23,15 @@ namespace SemanticLib.OpenXmlSdkPlugin.Collections
 
 		public override IRange Add()
 		{
-			OpenXmlSdkRange range = new OpenXmlSdkRange(_paragraph);
+			OpenXmlSdk.Run openXmlRun = new OpenXmlSdk.Run();
+			_paragraph.InnerObject.Append(openXmlRun);
+
+			OpenXmlSdkRange range = new OpenXmlSdkRange(_paragraph, openXmlRun);
+
+			if (range != null)
+			{
+				Add(range);
+			}
 
 			return range;
 		}
