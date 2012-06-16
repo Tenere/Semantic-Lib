@@ -47,9 +47,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SemanticLib.Interpreter\SemanticLib.Interpreter.csproj">
+    <ProjectReference Include="..\SemanticLib.Interpreter\SemanticLib.CodeWork.csproj">
       <Project>{6AE26A2F-5F22-4AEF-AA58-48C678B53C76}</Project>
-      <Name>SemanticLib.Interpreter</Name>
+      <Name>SemanticLib.CodeWork</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

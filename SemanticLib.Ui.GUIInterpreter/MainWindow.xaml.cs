@@ -26,6 +26,12 @@ namespace SemanticLib.GUIInterpreter
 		public MainWindow()
 		{
 			InitializeComponent();
+
+			Interpreter.Interpreter interpreter = new Interpreter.Interpreter();
+			Type type = interpreter.GetType();
+			Title = string.Format("SemanticLib Interpreter {0}.", type.Assembly.GetName().Version);
+
+			txtCode.AppendText("Press \"exit\" to exit.\n");
 		}
 		#endregion
 

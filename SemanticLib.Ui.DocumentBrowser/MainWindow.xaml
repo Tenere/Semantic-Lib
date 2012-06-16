@@ -1,49 +1,165 @@
-﻿<ribbon:RibbonWindow x:Class="WpfRibbonApplication1.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:ribbon="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
-        Title="MainWindow"
-		x:Name="RibbonWindow"
-		Width="640" Height="480">
+﻿<ribbon:RibbonWindow x:Class="SemanticLib.Ui.DocumentBrowser.MainWindow"
+					 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					 xmlns:ribbon="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
+					 Title="SemanticLib Document Browser"
+					 x:Name="RibbonWindow"
+					 Width="640" Height="480">
 
-	<Grid x:Name="LayoutRoot">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+	<Window.Resources>
+		<LinearGradientBrush x:Key="BackgroundBrush" StartPoint="0.5,0.0" EndPoint="0.5,1.0">
+			<GradientStop Color="#DBEBFF" Offset="0.0"/>
+			<GradientStop Color="#B7D7FF" Offset="1.0"/>
+		</LinearGradientBrush>
+	</Window.Resources>
+	
+	<Window.Background>
+		<LinearGradientBrush StartPoint="0.5,0.0" EndPoint="0.5,1.0">
+			<GradientStop Color="#B3D6FD" Offset="0.0"/>
+			<GradientStop Color="#688FBD" Offset="1.0"/>
+		</LinearGradientBrush>
+	</Window.Background>
 
-        <ribbon:Ribbon x:Name="Ribbon">
-            <ribbon:Ribbon.ApplicationMenu>
-                <ribbon:RibbonApplicationMenu SmallImageSource="Images\SmallIcon.png">
-                    <ribbon:RibbonApplicationMenuItem Header="Hello _Ribbon"
-                                                      x:Name="MenuItem1"
-                                                      ImageSource="Images\LargeIcon.png"/>
-                </ribbon:RibbonApplicationMenu>
-            </ribbon:Ribbon.ApplicationMenu>
-            <ribbon:RibbonTab x:Name="HomeTab" 
-                              Header="Home">
-                <ribbon:RibbonGroup x:Name="Group1" 
-                                    Header="Group1">
-                    <ribbon:RibbonButton x:Name="Button1"
-                                         LargeImageSource="Images\LargeIcon.png"
-                                         Label="Button1" />
+	<Grid x:Name="LayoutRoot"
+		  ShowGridLines="False">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
 
-                    <ribbon:RibbonButton x:Name="Button2"
-                                         SmallImageSource="Images\SmallIcon.png"
-                                         Label="Button2" />
-                    <ribbon:RibbonButton x:Name="Button3"
-                                         SmallImageSource="Images\SmallIcon.png"
-                                         Label="Button3" />
-                    <ribbon:RibbonButton x:Name="Button4"
-                                         SmallImageSource="Images\SmallIcon.png"
-                                         Label="Button4" />
-                    
-                </ribbon:RibbonGroup>
-                
-            </ribbon:RibbonTab>
-        </ribbon:Ribbon> 
+		<ribbon:Ribbon x:Name="Ribbon"
+					   Background="#BFDBFF">
+			<ribbon:Ribbon.ApplicationMenu>
+				<ribbon:RibbonApplicationMenu>
+					<ribbon:RibbonApplicationMenuItem Header="Hello _Ribbon"
+													  x:Name="MenuItem1"
+													  ImageSource="Images\LargeIcon.png"/>
+				</ribbon:RibbonApplicationMenu>
+			</ribbon:Ribbon.ApplicationMenu>
+			<ribbon:RibbonTab x:Name="HomeTab"
+							  Header="Home">
+				<ribbon:RibbonGroup x:Name="ClipboardGroup"
+									Header="Clipboard">
+					<ribbon:RibbonButton x:Name="PasteButton"
+										 Command="Paste"
+										 LargeImageSource="Images\Paste.bmp"
+										 Label="Paste"/>
+					<ribbon:RibbonButton x:Name="CutButton"
+										 Command="Cut"
+										 SmallImageSource="Images\Cut.png"
+										 Label="Cut"/>
+					<ribbon:RibbonButton x:Name="CopyButton"
+										 Command="Copy"
+										 SmallImageSource="Images\Copy.png"
+										 Label="Copy"/>
+				</ribbon:RibbonGroup>
+			</ribbon:RibbonTab>
+			<ribbon:RibbonTab x:Name="SettingsTab" Header="Settings"/>
+		</ribbon:Ribbon>
 		
-		
-        
-    </Grid>
+		<Grid Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+
+			<tree:SemanticLibTree xmlns:tree="clr-namespace:SemanticLib.Ui.DocumentBrowser"
+								  x:Name="trvDocumentStructure"
+								  Grid.Column="0"
+								  Margin="5,5,1,5"/>
+
+			<GridSplitter Grid.Column="1"
+						  HorizontalAlignment="Center"
+						  VerticalAlignment="Stretch"
+						  Width="3"
+						  Background="{Binding RibbonWindow.Background}"
+						  />
+
+			<TabControl Grid.Column="2"
+						Margin="5,5,1,5"
+						Background="White">
+				<TabItem Background="{StaticResource BackgroundBrush}">
+					<TabItem.Header>
+						<Label>
+							Element's Info
+						</Label>
+					</TabItem.Header>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="Auto"/>
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="3*"/>
+						</Grid.ColumnDefinitions>
+
+						<TextBlock Grid.Row="0"
+								   Grid.Column="0"
+								   Margin="3,1,1,1"
+								   Text="Object"
+								   HorizontalAlignment="Stretch"/>
+						<TextBox Grid.Row="0"
+								 Grid.Column="1"
+								 Margin="1,1,3,1"
+								 HorizontalAlignment="Stretch"/>
+						<TextBlock Grid.Row="1"
+								   Grid.Column="0"
+								   Margin="3,1,1,3"
+								   Text="Predicate"/>
+						<TextBox Grid.Row="1"
+								 Grid.Column="1"
+								 Margin="1,1,3,1"/>
+						<TextBlock Grid.Row="2"
+								   Grid.Column="0"
+								   Margin="3,1,1,3"
+								   Text="Subject"/>
+						<TextBox Grid.Row="2"
+								 Grid.Column="1"
+								 Margin="1,1,3,1"/>
+					</Grid>
+				</TabItem>
+				<TabItem Background="{StaticResource BackgroundBrush}">
+					<TabItem.Header>
+						<TextBlock>
+							SPARQL Reasoner
+						</TextBlock>
+					</TabItem.Header>
+				</TabItem>
+			</TabControl>
+
+			<!--<Grid Grid.Column="2"
+				  Margin="5,5,1,5">
+				<Grid.RowDefinitions>
+					<RowDefinition/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+
+				<DockPanel Grid.Row="0">
+					<TextBox>Simple Text</TextBox>
+				</DockPanel>
+
+				<GridSplitter Grid.Row="1"
+							  HorizontalAlignment="Stretch"
+							  VerticalAlignment="Center"
+							  Height="5"/>
+
+				<avalonEdit:TextEditor xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+									   Grid.Row="2"
+									   Name="textEditor"
+									   FontFamily="Consolas"
+									   SyntaxHighlighting="C#"
+									   FontSize="10pt"/>
+			</Grid>-->
+		</Grid>
+
+		<StatusBar Grid.Row="2"
+				   Background="{StaticResource BackgroundBrush}">
+			<TextBlock>Ready</TextBlock>
+		</StatusBar>
+	</Grid>
 </ribbon:RibbonWindow>

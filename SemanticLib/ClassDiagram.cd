@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Interface Name="SemanticLib.Core.ISpreadsheetDocument" Collapsed="true">
-    <Position X="3" Y="6.75" Width="2" />
+  <Class Name="SemanticLib.Core.ManifestGraph" Collapsed="true">
+    <Position X="3" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Core\ISpreadsheetDocument.cs</FileName>
+      <HashCode>AABAAAAAAAAAAAAAAAAIAAEAAAAAAAAAAgAAAAAAAAE=</HashCode>
+      <FileName>Core\ManifestGraph.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="SemanticLib.Core.IMetadataFile" Collapsed="true">
+    <Position X="0.75" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\IMetadataFile.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="SemanticLib.Core.ITextDocument" Collapsed="true">
-    <Position X="0.75" Y="6.75" Width="1.5" />
+  <Interface Name="SemanticLib.Core.IMetadataManifest" Collapsed="true">
+    <Position X="0.75" Y="4.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Core\ITextDocument.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="SemanticLib.Core.IPackageDocument" Collapsed="true">
-    <Position X="2" Y="5.25" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAACAAAAAACAAA=</HashCode>
-      <FileName>Core\IPackageDocument.cs</FileName>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\IMetadataManifest.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SemanticLib.Core.IPackageFile" Collapsed="true">
-    <Position X="5.25" Y="5.25" Width="1.5" />
+    <Position X="0.75" Y="2.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAACCAAAAAAAAAA=</HashCode>
       <FileName>Core\IPackageFile.cs</FileName>

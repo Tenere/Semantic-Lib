@@ -3,7 +3,7 @@ using System.IO;
 using Roslyn.Scripting;
 using Roslyn.Scripting.CSharp;
 
-namespace SemanticLib.Interpreter
+namespace SemanticLib.CodeWork
 {
 	public class Interpreter
 	{

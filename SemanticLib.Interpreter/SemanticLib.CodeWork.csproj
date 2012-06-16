@@ -8,8 +8,8 @@
     <ProjectGuid>{6AE26A2F-5F22-4AEF-AA58-48C678B53C76}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SemanticLib.Interpreter</RootNamespace>
-    <AssemblyName>SemanticLib.Interpreter</AssemblyName>
+    <RootNamespace>SemanticLib.CodeWork</RootNamespace>
+    <AssemblyName>SemanticLib.CodeWork</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

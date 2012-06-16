@@ -5,11 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Windows;
 
-namespace WpfRibbonApplication1
+namespace SemanticLib.Ui.DocumentBrowser
 {
-	/// <summary>
-	/// Interaction logic for App.xaml
-	/// </summary>
 	public partial class App : Application
 	{
 	}

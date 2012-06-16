@@ -5,7 +5,7 @@ using System.Reflection.Emit;
 using Roslyn.Compilers;
 using Roslyn.Compilers.CSharp;
 
-namespace SemanticLib.Interpreter
+namespace SemanticLib.CodeWork
 {
 	public class Compiler
 	{

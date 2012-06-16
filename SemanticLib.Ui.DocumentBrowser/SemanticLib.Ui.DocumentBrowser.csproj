@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SemanticLib.Ui.DocumentBrowser</RootNamespace>
-    <AssemblyName>Document Browser</AssemblyName>
+    <AssemblyName>DocumentBrowser</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -61,32 +61,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="SemanticLibEdit.xaml.cs">
-      <DependentUpon>SemanticLibEdit.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SemanticLibTree.xaml.cs">
-      <DependentUpon>SemanticLibTree.xaml</DependentUpon>
-    </Compile>
-    <Page Include="InterpreterControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="InterpreterControl.xaml.cs">
-      <DependentUpon>InterpreterControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="SemanticLibEdit.xaml">
+    <Compile Include="SemanticLibTree.xaml.cs">
+      <DependentUpon>SemanticLibTree.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -126,14 +112,23 @@
     <Resource Include="Images\SmallIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SemanticLib.Interpreter\SemanticLib.Interpreter.csproj">
+    <ProjectReference Include="..\SemanticLib.Interpreter\SemanticLib.CodeWork.csproj">
       <Project>{6AE26A2F-5F22-4AEF-AA58-48C678B53C76}</Project>
-      <Name>SemanticLib.Interpreter</Name>
+      <Name>SemanticLib.CodeWork</Name>
     </ProjectReference>
     <ProjectReference Include="..\SemanticLib\SemanticLib.csproj">
       <Project>{A8EF7F05-C852-4559-9EF3-E4FB56CC4469}</Project>
       <Name>SemanticLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Paste.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Cut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Copy.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
