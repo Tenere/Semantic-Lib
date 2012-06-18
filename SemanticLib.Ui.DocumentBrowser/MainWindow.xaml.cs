@@ -2,7 +2,7 @@
 using SemanticLib.Plugins;
 using SemanticLib.Core;
 
-namespace SemanticLib.Ui.DocumentBrowser
+namespace SemanticLib.UI.DocumentBrowser
 {
 	public partial class MainWindow : RibbonWindow
 	{

@@ -20,6 +20,18 @@ namespace SemanticLib.OdfDomPlugin
 
 		#region Properties
 
+		public string Id
+		{
+			get
+			{
+				throw new NotImplementedException();
+			}
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
 		public OdfTextParagraph InnerObject
 		{
 			get { return _paragraph; }

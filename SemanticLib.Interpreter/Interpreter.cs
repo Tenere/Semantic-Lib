@@ -24,7 +24,7 @@ namespace SemanticLib.CodeWork
 			string semanticLibPath = Path.Combine(path, "SemanticLib.dll");
 
 			_scriptEngine = new ScriptEngine(new[] { semanticLibPath });
-			_scriptEngine.Execute("using SemanticLib.Core; using SemanticLib.Plugins;", _session);
+			_scriptEngine.Execute("using SemanticLib.Core;using SemanticLib.Plugins;", _session);
 		}
 		#endregion
 

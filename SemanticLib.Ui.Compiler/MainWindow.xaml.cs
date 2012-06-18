@@ -1,15 +1,15 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
 using Microsoft.Windows.Controls.Ribbon;
-using System;
 
-namespace SemanticLib.Ui.Compiler
+namespace SemanticLib.UI.Compiler
 {
 	public partial class MainWindow : RibbonWindow
 	{
 		#region Fields
 
-		private readonly SemanticLib.Interpreter.Compiler _compiler = new Interpreter.Compiler();
+		private readonly SemanticLib.CodeWork.Compiler _compiler = new SemanticLib.CodeWork.Compiler();
 		#endregion
 
 		#region Constructors

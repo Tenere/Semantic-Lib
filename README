@@ -1,0 +1,11 @@
+SemanticLib - is a program complex designed for semantic indexing of electronic documents. SemanticLib main functions are: 
+• create new and edit existing Office Open XML and OpenDocument Format documents; 
+• work with the document metadata, linking the metadata with the content of the document; 
+• providing an interface for SPARQL queries to the metadata document.
+
+Here are the basic components of SemanticLib: 
+• SemanticLib DOM is an abstract model of an electronic document and its metadata, which may be applicable for the description of electronic documents in various formats (Office Open XML, OpenDocument Format).
+• SemanticLib Plugins are specific SemanticLib DOM implementations using specialized API. For example, the OpenXmlSdkPlugin uses Open XML SDK 2.0, a plugin OdfDomPlugin uses ODFDOM. 
+• SemanticLib Interpreter is a module that allows to work with SemanticLib in interactive mode.
+• SemanticLib Document Browser is a GUI application that allows you to analyze the structure of electronic documents, view its metadata and run SPARQL queries. 
+• SemanticLib Shell Extension is Microsoft Windows Explorer extension, which adds to its context menu extra points, allowing to run SemanticLib Document Browser for certain types of documents (.docx, .odt, etc).

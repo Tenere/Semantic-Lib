@@ -8,7 +8,7 @@
     <ProjectGuid>{2168F861-FFA4-4956-BF74-3D0BBAFDF257}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SemanticLib.Ui.Compiler</RootNamespace>
+    <RootNamespace>SemanticLib.UI.Compiler</RootNamespace>
     <AssemblyName>Compiler</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
@@ -40,13 +40,6 @@
       <HintPath>..\packages\AvalonEdit.4.2.0.8783\lib\Net40\ICSharpCode.AvalonEdit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
@@ -100,45 +93,14 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\LargeIcon.png" />
-    <Resource Include="Images\SmallIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\SemanticLib.Interpreter\SemanticLib.CodeWork.csproj">
       <Project>{6AE26A2F-5F22-4AEF-AA58-48C678B53C76}</Project>
       <Name>SemanticLib.CodeWork</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Paste.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Copy.png" />
-    <Resource Include="Images\Cut.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Save.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\SaveAs.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Open.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Exit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Build.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Error.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Information.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Warning.png" />
+    <ProjectReference Include="..\SemanticLib.UI.Resources\SemanticLib.UI.Resources.csproj">
+      <Project>{0CE7E319-6FA9-4F43-8F0D-63CF432C3B3B}</Project>
+      <Name>SemanticLib.UI.Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="AppIcon.ico" />

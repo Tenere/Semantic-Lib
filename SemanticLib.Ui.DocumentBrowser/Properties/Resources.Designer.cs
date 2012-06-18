@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SemanticLib.Ui.DocumentBrowser.Properties {
+namespace SemanticLib.UI.DocumentBrowser.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace SemanticLib.Ui.DocumentBrowser.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SemanticLib.Ui.DocumentBrowser.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SemanticLib.UI.DocumentBrowser.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

@@ -7,19 +7,17 @@ using SemanticLib.Core;
 
 namespace SemanticLib.Plugins
 {
+	/// <summary>
+	/// Searches plugins with specified characteristics.
+	/// </summary>
 	public static class PluginManager
 	{
-		public static IPlugin FindPlugin(string name)
+		private static IPlugin TryFindPlugin(string libraryName)
 		{
-			if (string.IsNullOrEmpty(name))
-			{
-				throw new ArgumentException("name");
-			}
-
-			Assembly assembly = Assembly.LoadFrom(name);
+			IPlugin plugin = null;
+			Assembly assembly = Assembly.LoadFrom(libraryName);
 			Type[] assemblyTypes = assembly.GetTypes();
 			Type pluginType = typeof(IPlugin);
-			IPlugin plugin = null;
 
 			foreach (Type type in assemblyTypes)
 			{
@@ -34,38 +32,101 @@ namespace SemanticLib.Plugins
 			return plugin;
 		}
 
+		/// <summary>
+		/// Searches a plugin given its file name or path.
+		/// </summary>
+		/// <param name="pluginFile">Plugin's name or path/</param>
+		/// <returns>Found plugin (if exists, otherwise null).</returns>
+		public static IPlugin FindPlugin(string pluginFile)
+		{
+			if (string.IsNullOrEmpty(pluginFile))
+			{
+				throw new ArgumentException("pluginFile");
+			}
+
+			IPlugin plugin = TryFindPlugin(pluginFile);
+
+			if (plugin == null &&
+				!pluginFile.Contains(Path.PathSeparator))
+			{
+				string pluginsDirectory = Path.Combine(Environment.CurrentDirectory, "Plugins", pluginFile);
+
+				if (Directory.Exists(pluginsDirectory))
+				{
+					plugin = TryFindPlugin(pluginsDirectory);
+				}
+			}
+
+			return plugin;
+		}
+
+		/// <summary>
+		/// Searches all plugins in current directory.
+		/// </summary>
+		/// <returns>All found plugins.</returns>
 		public static IEnumerable<IPlugin> FindPlugins()
 		{
+			return FindPlugins(Environment.CurrentDirectory);
+		}
+
+		/// <summary>
+		/// Searches all plugins in specified directory.
+		/// </summary>
+		/// <param name="directory">Directory in which the plugins will be searched.</param>
+		/// <returns>Found plugins.</returns>
+		public static IEnumerable<IPlugin> FindPlugins(string directory)
+		{
+			if (string.IsNullOrEmpty(directory))
+			{
+				throw new ArgumentException("directory");
+			}
+
 			List<IPlugin> plugins = new List<IPlugin>();
-			DirectoryInfo directory = new DirectoryInfo(Environment.CurrentDirectory);
-			FileInfo[] files = directory.GetFiles("*.dll", SearchOption.TopDirectoryOnly);
+			List<string> libraries = new List<string>();
+			string pluginsDirectory = Path.Combine(directory, "Plugins");
+			const string searchPattern = "*.dll";
+
+			libraries.AddRange(Directory.GetFiles(directory, searchPattern, SearchOption.TopDirectoryOnly));
+
+			if (Directory.Exists(pluginsDirectory))
+			{
+				libraries.AddRange(Directory.GetFiles(pluginsDirectory, searchPattern, SearchOption.TopDirectoryOnly));
+			}
+
 			Type pluginType = typeof(IPlugin);
 
-			foreach (FileInfo file in files)
+			foreach (string library in libraries)
 			{
-				Assembly assembly = Assembly.LoadFile(file.FullName);
-				Type[] assemblyTypes = assembly.GetTypes();
+				IPlugin plugin = TryFindPlugin(library);
 
-				foreach (Type type in assemblyTypes)
+				if (plugin != null)
 				{
-					if (!type.IsAbstract &&
-					  type.GetInterfaces().Contains(pluginType))
-					{
-						IPlugin plugin = (IPlugin)Activator.CreateInstance(type);
-
-						plugins.Add(plugin);
-					}
+					plugins.Add(plugin);
 				}
 			}
 
 			return plugins;
 		}
 
+		/// <summary>
+		/// Searches plugins in current directory with specified format.
+		/// </summary>
+		/// <param name="documentFormat">Document format with which plugins should work.</param>
+		/// <returns>Found plugins.</returns>
 		public static IEnumerable<IPlugin> FindPlugins(DocumentFormat documentFormat)
 		{
-			IEnumerable<IPlugin> allPlugins = FindPlugins();
+			return FindPlugins(Environment.CurrentDirectory, documentFormat);
+		}
 
-			return allPlugins.Where(plugin => plugin.Format == documentFormat);
+		/// <summary>
+		/// Searches plugins in specified directory with specified document format.
+		/// </summary>
+		/// <param name="directory">Directory in which the plugins will be searched.</param>
+		/// <param name="documentFormat">Document format with which plugins should work.</param>
+		/// <returns></returns>
+		public static IEnumerable<IPlugin> FindPlugins(string directory, DocumentFormat documentFormat)
+		{
+			return FindPlugins(directory).Where(plugin => plugin.Format == documentFormat);
 		}
 	}
 }

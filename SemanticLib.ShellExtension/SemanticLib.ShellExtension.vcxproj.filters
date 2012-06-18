@@ -55,7 +55,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="CppShellExtContextMenuHandler.rc">
+    <ResourceCompile Include="SemanticLib.ShellExtension.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>

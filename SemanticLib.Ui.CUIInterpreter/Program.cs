@@ -1,4 +1,5 @@
 ﻿using System;
+using SemanticLib.CodeWork;
 
 namespace SemanticLib.Ui.CUIInterpreter
 {
@@ -6,7 +7,7 @@ namespace SemanticLib.Ui.CUIInterpreter
 	{
 		public static void Main(string[] args)
 		{
-			Interpreter.Interpreter interpreter = new Interpreter.Interpreter();
+			Interpreter interpreter = new Interpreter();
 			Type type = interpreter.GetType();
 			const string stopWord = "exit";
 			Console.WriteLine("SemanticLib Interpreter {0}.", type.Assembly.GetName().Version);

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SemanticLib.Ui.DocumentBrowser.Properties {
+namespace SemanticLib.UI.DocumentBrowser.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

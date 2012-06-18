@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="97E79762-0455-4DC8-88C7-B631ABC3EEF3"
+			 UpgradeCode="AD57E801-E8AF-4444-AA97-81B39B598810"
+			 Name="SemanticLib"
+			 Language="1033"
+			 Version="0.0.1.0"
+			 Manufacturer="Vyacheslav Bessonov">
+		
+		<Package InstallerVersion="200" Compressed="yes" />
+		<Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLDIR" Name="SemanticLib">
+
+					<Component Id="SLCoreComponent" Guid="C44DD7EF-0F1C-400D-B8AD-907BDCE73DD1">
+						<File Id="SemanticLibDll"
+							  Name="SemanticLib.dll"
+							  Source="$(var.BuildDir)\SemanticLib.dll"
+							  KeyPath="yes"/>
+					</Component>
+
+					<Component Id="SLCodeWorkDllComponent" Guid="989B9009-4EC6-4A04-84CE-D19465EA0A33">
+						<File Id="SLCodeWorkDll" 
+							  Name="SemanticLib.CodeWork.dll"
+							  Source="$(var.BuildDir)\SemanticLib.CodeWork.dll"
+							  KeyPath="yes" />
+					</Component>
+
+					<Component Id="SLCodeWorkCUIInterpreterComponent" Guid="F3636A57-6589-4259-AA54-86FAF6A5AC4E">
+						<File Id="SLCUIInterpreterExe"
+							  Name="CUIInterpreter.exe"
+							  Source="$(var.BuildDir)\CUIInterpreter.exe"
+							  KeyPath="yes" />
+					</Component>
+
+					<Component Id="SLCodeWorkGUIInterpreterComponent" Guid="6FDF5B90-095A-46B7-A6F9-2C5FAD015F59">
+						<File Id="SLGUIInterpreterExe"
+							  Name="GUIInterpreter.exe"
+							  Source="$(var.BuildDir)\GUIInterpreter.exe"
+							  KeyPath="yes" />
+					</Component>
+
+					<Component Id="SLCodeWorkCompilerComponent" Guid="384C447D-8865-447B-B340-8D7DFA44F457">
+						<File Id="SLCompilerExe"
+							  Name="Compiler.exe"
+							  Source="$(var.BuildDir)\Compiler.exe"
+							  KeyPath="yes" />
+					</Component>
+
+					<Component Id="SLDocumentBrowserComponent" Guid="D966C19C-3A08-4F39-9B64-8D64BCF0117E">
+						<File Id="SLDocumentBrowserExe"
+							  Name="DocumentBrowser.exe"
+							  Source="$(var.BuildDir)\DocumentBrowser.exe"
+							  KeyPath="yes" />
+					</Component>
+
+					<Component Id="SLShellExtensionComponent" Guid="536C5C90-2960-48CC-B0C3-918721CE70C9">
+						<File Id="SLShellExtensionDll"
+							  Name="SemanticLib.ShellExtension.dll"
+							  Source="$(var.BuildDir)\SemanticLib.ShellExtension.dll"
+							  KeyPath="yes" />
+					</Component>
+
+					<Directory Id="PluginsDir" Name="Plugins">
+						<Component Id="SLOpenXmlSdkPluginComponent" Guid="24234949-C664-48EA-ACA6-0E71AEC8C841">
+							<File Id="SLOpenXmlSdkPluginDll"
+								  Name="SemanticLib.OpenXmlSdkPlugin.dll"
+								  Source="$(var.BuildDir)\Plugins\SemanticLib.OpenXmlSdkPlugin.dll"
+								  KeyPath="yes"/>
+						</Component>
+
+						<Component Id="SLOdfDomPluginComponent" Guid="A4E53DBD-6A13-4DE6-B893-4C7E784D3C1D">
+							<File Id="SLOdfDomPluginDll"
+								  Name="SemanticLib.OdfDomPlugin.dll"
+								  Source="$(var.BuildDir)\Plugins\SemanticLib.OdfDomPlugin.dll"
+								  KeyPath="yes"/>
+						</Component>
+					</Directory>
+				</Directory>
+			</Directory>
+		</Directory>
+
+		<Feature Id="Complete"
+				 Level="1"
+				 Title="SemanticLib"
+				 Description="SemanticLib Package"
+				 Display="expand"
+				 ConfigurableDirectory="INSTALLDIR">
+
+			<ComponentRef Id="SLCoreComponent" />
+
+			<Feature Id="SLPluginsFeature"
+				 Level="1"
+				 Title="SemanticLib Plugins"
+				 Description="SemanticLib Plugin Modules.">
+
+				<Feature Id="SLOpenXmlSdkPluginFeature"
+						 Level="1"
+						 Title="Open XML SDK Plugin"
+						 Description="Open XML SDK Plugin.">
+					<ComponentRef Id="SLOpenXmlSdkPluginComponent" />
+				</Feature>
+
+				<Feature Id="SLOdfDomPluginFeature"
+						 Level="1"
+						 Title="ODFDOM Plugin"
+						 Description="ODFDOM Plugin.">
+					<ComponentRef Id="SLOdfDomPluginComponent" />
+				</Feature>
+			</Feature>
+
+			<Feature Id="SLCodeWorkFeature"
+					 Level="1"
+					 Title="SemanticLib Code Work"
+					 Description="SemanticLib Code Work Modules"
+					 Display="expand">
+
+				<ComponentRef Id="SLCodeWorkDllComponent" />
+
+				<Feature Id="SLCodeWorkUIComponentsFeature"
+						 Level="1000"
+						 Title="UI Components"
+						 Description="SemanticLib Code Word UI Components">
+					
+					<Feature Id="SLCodeWorkCUIInterpreterFeature"
+							 Level="1"
+							 Title="CUI Interpreter"
+							 Description="SemanticLib Code Word CUI Interpreter.">
+						<ComponentRef Id="SLCodeWorkCUIInterpreterComponent" />
+					</Feature>
+
+					<Feature Id="SLCodeWorkGUIInterpreterFeature"
+							 Level="1"
+							 Title="GUI Interpreter"
+							 Description="SemanticLib Code Word GUI Interpreter.">
+						<ComponentRef Id="SLCodeWorkGUIInterpreterComponent" />
+					</Feature>
+
+					<Feature Id="SLCodeWorkCompilerFeature"
+							 Level="1"
+							 Title="Compiler"
+							 Description="SemanticLib Code Word Compiler.">
+						<ComponentRef Id="SLCodeWorkCompilerComponent" />
+					</Feature>
+				</Feature>
+			</Feature>
+
+			<Feature Id="SLDocumentBrowserFeature"
+				 Level="1"
+				 Title="Document Browser"
+				 Description="SemanticLib Document Browser">
+				<ComponentRef Id="SLDocumentBrowserComponent"/>
+			</Feature>
+
+			<Feature Id="SLShellExtensionFeature"
+				 Level="1"
+				 Title="Shell Extension"
+				 Description="SemanticLib Shell Extension">
+				<ComponentRef Id="SLShellExtensionComponent"/>
+			</Feature>
+		</Feature>
+
+		<UIRef Id="WixUI_FeatureTree" />
+		<UIRef Id="WixUI_ErrorProgressText" />
+
+	</Product>
+</Wix>

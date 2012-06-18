@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SemanticLib.Ui.GUIInterpreter.Properties {
+namespace SemanticLib.UI.GUIInterpreter.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

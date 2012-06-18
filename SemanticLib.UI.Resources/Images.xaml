@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ImageSource x:Key="BuildImage">Images/Build.png</ImageSource>
+	<ImageSource x:Key="PropertiesImage">Images/Properties.png</ImageSource>
+	<ImageSource x:Key="CopyImage">Images/Copy.png</ImageSource>
+	<ImageSource x:Key="CutImage">Images/Cut.png</ImageSource>
+	<ImageSource x:Key="ErrorImage">Images/Error.png</ImageSource>
+	<ImageSource x:Key="ExitImage">Images/Exit.png</ImageSource>
+	<ImageSource x:Key="InformationImage">Images/Information.png</ImageSource>
+	<ImageSource x:Key="LargeImage">Images/LargeIcon.png</ImageSource>
+	<ImageSource x:Key="OpenImage">Images/Open.png</ImageSource>
+	<ImageSource x:Key="PasteImage">Images/Paste.png</ImageSource>
+	<ImageSource x:Key="SaveImage">Images/Save.png</ImageSource>
+	<ImageSource x:Key="SaveAsImage">Images/SaveAs.png</ImageSource>
+	<ImageSource x:Key="SmallImage">Images/SmallIcon.png</ImageSource>
+	<ImageSource x:Key="WarningImage">Images/Warning.png</ImageSource>
+</ResourceDictionary>

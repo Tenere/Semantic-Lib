@@ -1,4 +1,4 @@
-LIBRARY	"CppShellExtContextMenuHandler"
+LIBRARY	"SemanticLib.ShellExtension.dll"
 EXPORTS
     DllGetClassObject   PRIVATE
     DllCanUnloadNow     PRIVATE

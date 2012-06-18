@@ -71,6 +71,7 @@
     <Compile Include="OpenXmlSdkTextDocumentTest.cs" />
     <Compile Include="OpenXmlSdkTextPluginTest.cs" />
     <Compile Include="OpenXmlSdkTextTest.cs" />
+    <Compile Include="PluginManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

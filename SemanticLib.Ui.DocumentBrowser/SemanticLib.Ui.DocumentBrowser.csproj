@@ -8,7 +8,7 @@
     <ProjectGuid>{3C0FB7E9-257D-409F-A7F2-B8E23173917D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SemanticLib.Ui.DocumentBrowser</RootNamespace>
+    <RootNamespace>SemanticLib.UI.DocumentBrowser</RootNamespace>
     <AssemblyName>DocumentBrowser</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
@@ -41,12 +41,6 @@
       <HintPath>..\packages\AvalonEdit.4.1.0.8000\lib\Net40\ICSharpCode.AvalonEdit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
@@ -108,27 +102,18 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\LargeIcon.png" />
-    <Resource Include="Images\SmallIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\SemanticLib.Interpreter\SemanticLib.CodeWork.csproj">
       <Project>{6AE26A2F-5F22-4AEF-AA58-48C678B53C76}</Project>
       <Name>SemanticLib.CodeWork</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SemanticLib.UI.Resources\SemanticLib.UI.Resources.csproj">
+      <Project>{0CE7E319-6FA9-4F43-8F0D-63CF432C3B3B}</Project>
+      <Name>SemanticLib.UI.Resources</Name>
     </ProjectReference>
     <ProjectReference Include="..\SemanticLib\SemanticLib.csproj">
       <Project>{A8EF7F05-C852-4559-9EF3-E4FB56CC4469}</Project>
       <Name>SemanticLib</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Paste.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Cut.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Copy.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

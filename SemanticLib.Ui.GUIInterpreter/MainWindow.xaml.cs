@@ -1,24 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Microsoft.Windows.Controls.Ribbon;
+using SemanticLib.CodeWork;
 
-namespace SemanticLib.GUIInterpreter
+namespace SemanticLib.UI.GUIInterpreter
 {
-	public partial class MainWindow : Window
+	public partial class MainWindow : RibbonWindow
 	{
 		#region Fields
 
-		private Interpreter.Interpreter _interpreter;
+		private Interpreter _interpreter;
 		#endregion
 
 		#region Constructors
@@ -27,11 +18,11 @@ namespace SemanticLib.GUIInterpreter
 		{
 			InitializeComponent();
 
-			Interpreter.Interpreter interpreter = new Interpreter.Interpreter();
-			Type type = interpreter.GetType();
+			_interpreter = new Interpreter();
+			Type type = _interpreter.GetType();
 			Title = string.Format("SemanticLib Interpreter {0}.", type.Assembly.GetName().Version);
 
-			txtCode.AppendText("Press \"exit\" to exit.\n");
+			txtCode.AppendText("> ");
 		}
 		#endregion
 

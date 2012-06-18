@@ -3,12 +3,12 @@
 namespace SemanticLib.Core
 {
 	/// <summary>
-	/// Параграф текстового документа.
+	/// Text document' paragraph.
 	/// </summary>
 	public interface IParagraph : IDocumentElement
 	{
 		/// <summary>
-		/// Возвращает коллекцию областей данного параграфа.
+		/// Gets this paragraph range collection.
 		/// </summary>
 		RangeCollection Ranges { get; }
 	}

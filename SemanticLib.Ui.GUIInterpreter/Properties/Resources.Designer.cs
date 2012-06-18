@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SemanticLib.Ui.GUIInterpreter.Properties {
+namespace SemanticLib.UI.GUIInterpreter.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace SemanticLib.Ui.GUIInterpreter.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SemanticLib.Ui.GUIInterpreter.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SemanticLib.UI.GUIInterpreter.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
