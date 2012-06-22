@@ -20,13 +20,23 @@ namespace SemanticLib.UI.GUIInterpreter
 
 			_interpreter = new Interpreter();
 			Type type = _interpreter.GetType();
-			Title = string.Format("SemanticLib Interpreter {0}.", type.Assembly.GetName().Version);
+			Title = string.Format("SemanticLib Interpreter {0}", type.Assembly.GetName().Version);
 
 			txtCode.AppendText("> ");
 		}
 		#endregion
 
 		#region Event Handlers
+
+		private void OnSaveCommandCanExecute(object sender, CanExecuteRoutedEventArgs e)
+		{
+			e.CanExecute = true;
+		}
+
+		private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+		{
+
+		}
 
 		private void txtCode_KeyUp(object sender, KeyEventArgs e)
 		{

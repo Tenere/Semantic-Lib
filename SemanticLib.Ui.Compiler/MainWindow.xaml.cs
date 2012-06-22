@@ -17,6 +17,9 @@ namespace SemanticLib.UI.Compiler
 		public MainWindow()
 		{
 			InitializeComponent();
+
+			Type type = _compiler.GetType();
+			Title = string.Format("SemanticLib Compiler {0}", type.Assembly.GetName().Version);
 		}
 		#endregion
 

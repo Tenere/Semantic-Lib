@@ -3,8 +3,10 @@
 					 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 					 xmlns:ribbon="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
 					 Title="SemanticLib Document Browser"
-					 x:Name="RibbonWindow"
-					 Width="640" Height="480">
+					 Icon="SemanticLib.ico"
+					 Width="640"
+					 Height="480"
+					 x:Name="RibbonWindow">
 
 	<Window.Resources>
 		<LinearGradientBrush x:Key="BackgroundBrush" StartPoint="0.5,0.0" EndPoint="0.5,1.0">
@@ -34,7 +36,7 @@
 				<ribbon:RibbonApplicationMenu>
 					<ribbon:RibbonApplicationMenuItem Header="Hello _Ribbon"
 													  x:Name="MenuItem1"
-													  ImageSource="Images\LargeIcon.png"/>
+													  ImageSource="{StaticResource LargeImage}"/>
 				</ribbon:RibbonApplicationMenu>
 			</ribbon:Ribbon.ApplicationMenu>
 			<ribbon:RibbonTab x:Name="HomeTab"
@@ -43,15 +45,15 @@
 									Header="Clipboard">
 					<ribbon:RibbonButton x:Name="PasteButton"
 										 Command="Paste"
-										 LargeImageSource="Images\Paste.bmp"
+										 LargeImageSource="{StaticResource PasteImage}"
 										 Label="Paste"/>
 					<ribbon:RibbonButton x:Name="CutButton"
 										 Command="Cut"
-										 SmallImageSource="Images\Cut.png"
+										 SmallImageSource="{StaticResource CutImage}"
 										 Label="Cut"/>
 					<ribbon:RibbonButton x:Name="CopyButton"
 										 Command="Copy"
-										 SmallImageSource="Images\Copy.png"
+										 SmallImageSource="{StaticResource CopyImage}"
 										 Label="Copy"/>
 				</ribbon:RibbonGroup>
 			</ribbon:RibbonTab>

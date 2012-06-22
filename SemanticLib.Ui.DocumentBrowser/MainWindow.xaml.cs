@@ -1,6 +1,7 @@
 ﻿using Microsoft.Windows.Controls.Ribbon;
 using SemanticLib.Plugins;
 using SemanticLib.Core;
+using System;
 
 namespace SemanticLib.UI.DocumentBrowser
 {
@@ -9,6 +10,9 @@ namespace SemanticLib.UI.DocumentBrowser
 		public MainWindow()
 		{
 			InitializeComponent();
+
+			Type type = typeof(PluginManager);
+			Title = string.Format("SemanticLib Document Browser {0}", type.Assembly.GetName().Version);
 
 			IPlugin pluginHolder = PluginManager.FindPlugin("SemanticLib.OpenXmlSdkPlugin.dll");
 

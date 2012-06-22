@@ -5,7 +5,9 @@
 					 xmlns:ribbon="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
 					 xmlns:properties="clr-namespace:SemanticLib.UI.Compiler.Properties"
 					 Title="SemanticLib Compiler"
-					 Width="640" Height="480"
+					 Icon="SemanticLib.ico"
+					 Width="640"
+					 Height="480"
 					 Background="#35496A">
 
 	<Window.Resources>
@@ -49,7 +51,7 @@
 		<CommandBinding Command="{StaticResource ShowOptions}" CanExecute="Close_CanExecute" Executed="Close_Executed"/>
 	</Window.CommandBindings>
 	
-	<Grid>
+	<Grid ShowGridLines="False">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto"/>
 			<RowDefinition Height="*"/>
@@ -131,7 +133,7 @@
 
 		<Border Grid.Row="3"
 				CornerRadius="3"
-				Margin="0,5,0,0">
+				Margin="3,5,3,0">
 			<StackPanel>
 				<Label>
 					<Label.Background>
@@ -166,7 +168,8 @@
 				
 				<ListView Name="lvwErrors"
 						  Grid.Row="3"
-						  Background="White">
+						  Background="White"
+						  HorizontalAlignment="Stretch">
 					<ListView.View>
 						<GridView AllowsColumnReorder="true"
 								  ColumnHeaderToolTip="Employee Information">
@@ -181,6 +184,13 @@
 											Width="100"/>
 						</GridView>
 					</ListView.View>
+					<ListView.Items>
+						<ListViewItem>1</ListViewItem>
+						<ListViewItem>1</ListViewItem>
+						<ListViewItem>1</ListViewItem>
+						<ListViewItem>1</ListViewItem>
+						<ListViewItem>1</ListViewItem>
+					</ListView.Items>
 				</ListView>
 			</StackPanel>
 		</Border>

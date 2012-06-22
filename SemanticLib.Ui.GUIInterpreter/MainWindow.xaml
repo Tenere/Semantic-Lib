@@ -3,8 +3,14 @@
 					 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 					 xmlns:ribbon="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
 					 Title="SemanticLib Document Browser"
-					 x:Name="RibbonWindow"
-					 Width="640" Height="480">
+					 Icon="SemanticLib.ico"
+					 Width="640"
+					 Height="480"
+					 x:Name="RibbonWindow">
+	<Window.CommandBindings>
+		<CommandBinding Command="Save" CanExecute="OnSaveCommandCanExecute" Executed="CommandBinding_Executed"/>
+	</Window.CommandBindings>
+
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto"/>
@@ -36,6 +42,13 @@
 										 SmallImageSource="{StaticResource CopyImage}"
 										 Label="Copy"/>
 				</ribbon:RibbonGroup>
+				<ribbon:RibbonGroup x:Name="FileGroup"
+									Header="File">
+					<ribbon:RibbonButton x:Name="SaveButton"
+										 Command="Save"
+										 LargeImageSource="{StaticResource SaveImage}"
+										 Label="Save"/>
+				</ribbon:RibbonGroup>
 			</ribbon:RibbonTab>
 			<ribbon:RibbonTab x:Name="SettingsTab" Header="Settings"/>
 		</ribbon:Ribbon>
@@ -44,6 +57,7 @@
 					 Name="txtCode"
 					 HorizontalAlignment="Stretch"
 					 VerticalAlignment="Stretch"
+					 FontSize="15"
 					 KeyUp="txtCode_KeyUp"/>
 	</Grid>
 </ribbon:RibbonWindow>
